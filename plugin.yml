@@ -1,0 +1,5 @@
+name: BountyHunter
+main: uk.co.spudstabber.bountyhunter.BountyHunter
+version: 0.0.1
+author: Spudstabber
+depend: [Vault]
