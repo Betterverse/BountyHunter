@@ -32,6 +32,7 @@ public class BountyPlayer {
 	
 	public void newBounty(Player player, Location location)
 	{
+		if (plugin.isPlayerInHashMap(player)) return;
 		this.updateBounty(player, location);
 		
 		this.bounty = plugin.getConfig().getInt("money.start-bounty");
