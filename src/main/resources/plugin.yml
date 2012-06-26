@@ -1,0 +1,5 @@
+name: ${project.name}
+main: net.betterverse.manhunt.ManHunt
+version: ${project.version}
+author: NuclearW
+depend: [Vault]

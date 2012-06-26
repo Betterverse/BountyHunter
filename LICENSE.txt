@@ -1,0 +1,6 @@
+The source code, compiled binaries, and everything associated with this software is, unless otherwise arranged, meant for use only for The Betterverse and related services.
+
+Any contributions are made with the knowledge that you have the proper permission to submit, commit, or otherwise give it to The Betterverse and users acting on its behalf.
+You may not use, share, or otherwise distribute the code for any purpose other than to further the development of the software for use of The Betterverse.
+
+Unless previously agreed upon, all associated works belong to The Betterverse and should be deleted from your system(s) when you have finished your efforts.
