@@ -31,6 +31,11 @@ public class ManHunt extends JavaPlugin {
 		return config;
 	}
 
+	/**
+	 * Get the number of currently running hunts
+	 *
+	 * @return The number of currently running hunts
+	 */
 	public int getActiveHuntCount() {
 		return hunts.size();
 	}
