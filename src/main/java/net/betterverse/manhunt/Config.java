@@ -14,15 +14,4 @@ public class Config {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	/**
-	 * Get the number of seconds to wait between player count checks
-	 *
-	 * @return The number of seconds to wait
-	 */
-	public int getPlayerCountDelay() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

@@ -18,10 +18,6 @@ public class ManHunt extends JavaPlugin {
 		// Config
 		config = new Config(this);
 
-		// CleanupTask
-		ManHuntStartCheckTask task = new ManHuntStartCheckTask(this);
-		getServer().getScheduler().scheduleSyncRepeatingTask(this, task, 1L, config.getPlayerCountDelay() * 20);
-
 		// Hello, world.
 		getLogger().info("Finished Loading " + getDescription().getFullName());
 	}
