@@ -1,0 +1,17 @@
+reward:
+    initial: 100
+    increment: 100
+    timer: 60
+    maximum: 1000
+hunts:
+    maximum_concurrent: 1
+    hunt_1:
+        minimum_players: 3
+    hunt_2:
+        minimum_players: 8
+    hunt_3:
+        minimum_players: 13
+    hunt_4:
+        minimum_players: 18
+    hunt_5:
+        minimum_players: 23
