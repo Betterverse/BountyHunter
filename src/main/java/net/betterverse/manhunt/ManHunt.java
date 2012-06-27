@@ -30,4 +30,8 @@ public class ManHunt extends JavaPlugin {
 	protected Config getConfiguration() {
 		return config;
 	}
+
+	public int getActiveHuntCount() {
+		return hunts.size();
+	}
 }
