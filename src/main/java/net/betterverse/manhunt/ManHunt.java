@@ -31,6 +31,11 @@ public class ManHunt extends JavaPlugin {
 		return config;
 	}
 
+	protected void startNewHunt() {
+		Hunt hunt = new Hunt(this);
+		hunts.add(hunt);
+	}
+
 	/**
 	 * Get the number of currently running hunts
 	 *

@@ -22,6 +22,8 @@ public class ManHuntListener implements Listener {
 		int huntNumber = plugin.getConfiguration().getHuntNumberForLimit(playerCount);
 
 		if(plugin.getActiveHuntCount() >= huntNumber) return;
+
+		plugin.startNewHunt();
 	}
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
