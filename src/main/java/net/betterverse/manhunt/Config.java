@@ -43,4 +43,19 @@ public class Config {
 		}
 		return -1;
 	}
+
+	public int getHuntResetTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getBountyStartPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getBountyIncrementTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
