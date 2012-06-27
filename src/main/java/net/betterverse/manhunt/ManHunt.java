@@ -30,4 +30,8 @@ public class ManHunt extends JavaPlugin {
 	public void onDisable() {
 		getLogger().info("Finished Unloading "+getDescription().getFullName());
 	}
+
+	protected Config getConfiguration() {
+		return config;
+	}
 }
