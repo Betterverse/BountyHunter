@@ -45,6 +45,25 @@ public class Hunt implements Runnable {
 	}
 
 	/**
+	 * Check if a given player is the target of this Hunt
+	 *
+	 * @param player Player to check
+	 * @return true if the player is this Hunt's target
+	 */
+	public boolean isTarget(Player player) {
+		return target.equals(player);
+	}
+
+	/**
+	 * Get the activity status of this Hunt
+	 *
+	 * @return true if this Hunt is currently active
+	 */
+	public boolean isActive() {
+		return mode == HuntMode.HUNT;
+	}
+
+	/**
 	 * Update the location of this Hunt's target
 	 *
 	 * @return true if the location has been changed, false if not

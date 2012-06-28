@@ -3,6 +3,7 @@ package net.betterverse.manhunt;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ManHunt extends JavaPlugin {
@@ -34,6 +35,32 @@ public class ManHunt extends JavaPlugin {
 	 */
 	public int getActiveHuntCount() {
 		return hunts.size();
+	}
+
+	/**
+	 * Check to see if a player is in a hunt
+	 *
+	 * @param player Player to check
+	 * @return true if they are in an active hunt, false if not
+	 */
+	public boolean isInHunt(Player player) {
+		for(Hunt hunt : hunts) {
+			if(hunt.isActive() && hunt.isTarget(player)) return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Get the active hunt a player is in
+	 *
+	 * @param player Player to get hunt from
+	 * @return The Hunt, or null if not found
+	 */
+	public Hunt getHuntFromPlayer(Player player) {
+		for(Hunt hunt : hunts) {
+			if(hunt.isActive() && hunt.isTarget(player)) return hunt;
+		}
+		return null;
 	}
 
 	protected Config getConfiguration() {
