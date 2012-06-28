@@ -11,16 +11,6 @@ public class Config {
 	}
 
 	/**
-	 * Get the number of seconds to wait between a hunt starting and a hunt beginning
-	 *
-	 * @return The number of seconds to wait
-	 */
-	public long getHuntDelay() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
 	 * Check if a given player count is a hunt limit
 	 *
 	 * @param playerCount Current player count
