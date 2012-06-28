@@ -4,6 +4,7 @@ reward:
     timer: 60
     maximum: 1000
 hunts:
+    reset_time: 120
     maximum_concurrent: 1
     hunt_1:
         minimum_players: 3
