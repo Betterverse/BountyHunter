@@ -44,7 +44,23 @@ public class Hunt implements Runnable {
 				announceTargetLocation();
 			}
 		} else if(mode == HuntMode.RESTART) {
-			
+			// Here we are to check to see if we should start a new hunt based on config values and the number of hunts, if not we should set this Hunt to be removed and not schedule a new task
+			int count = plugin.getActiveHuntCount();
+			int playerCount = plugin.getServer().getOnlinePlayers().length;
+			int maxHunts = plugin.getConfiguration().getMaximumHunts(playerCount);
+
+			if(count > maxHunts) {
+				plugin.removeHunt(this);
+				// This is a special case return, as we do not want to schedule this hunt for the future
+				return;
+			} else {
+				selectTarget();
+				updateLocation();
+				bounty = plugin.getConfiguration().getBountyStartPrice();
+				announceNewTarget();
+
+				mode = HuntMode.HUNT;
+			}
 		} else if(mode == HuntMode.DISCONNECT) {
 			// Here we are to check to see if our target is still offline, if so we should then remove them from being the target (so the Player object can be gc'd) and then set our mode to RESTART
 			if(target.isOnline()) {

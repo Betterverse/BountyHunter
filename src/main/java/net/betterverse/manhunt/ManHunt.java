@@ -71,4 +71,8 @@ public class ManHunt extends JavaPlugin {
 		Hunt hunt = new Hunt(this);
 		hunts.add(hunt);
 	}
+
+	protected void removeHunt(Hunt hunt) {
+		hunts.remove(hunt);
+	}
 }
