@@ -39,7 +39,15 @@ public class Hunt implements Runnable {
 		} else if(mode == HuntMode.RESTART) {
 			
 		} else if(mode == HuntMode.DISCONNECT) {
-			
+			// Here we are to check to see if our target is still offline, if so we should then remove them from being the target (so the Player object can be gc'd) and then set our mode to RESTART
+			if(target.isOnline()) {
+				// Peaches and cream
+				mode = HuntMode.HUNT;
+			} else {
+				announceTargetCoward();
+				target = null;
+				mode = HuntMode.RESTART;
+			}
 		} else {
 			plugin.getLogger().severe("HuntMode was unexpected, could not execute this task!");
 		}
