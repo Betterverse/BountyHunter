@@ -39,7 +39,7 @@ public class Hunt implements Runnable {
 		} else if(mode == HuntMode.RESETART) {
 			
 		} else {
-			plugin.getLogger().severe("HuntMode was not HUNT or RESTART!");
+			plugin.getLogger().severe("HuntMode was unexpected!");
 		}
 		scheduleNextRun();
 	}
