@@ -107,6 +107,10 @@ public class Hunt implements Runnable {
 		plugin.getServer().broadcastMessage(ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + " can be found near " + ChatColor.DARK_RED + + location.getBlockX() + "," + location.getBlockY() + "," + location.getBlockZ()); 
 	}
 
+	private void announceTargetCoward() {
+		plugin.getServer().broadcastMessage(ChatColor.RED + "The bounty was removed from " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + " for cowardice! Shame on them!");
+	}
+
 	private void scheduleNextRun() {
 		if(mode == HuntMode.HUNT) {
 			int time = plugin.getConfiguration().getBountyIncrementTime();
