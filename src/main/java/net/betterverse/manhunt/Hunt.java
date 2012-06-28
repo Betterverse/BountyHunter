@@ -16,7 +16,7 @@ public class Hunt implements Runnable {
 
 	private int taskId;
 
-	private final Random random = new Random();
+	private static final Random random = new Random();
 
 	public Hunt(ManHunt manHunt) {
 		if(plugin == null) {
