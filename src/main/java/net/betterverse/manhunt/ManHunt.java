@@ -27,15 +27,6 @@ public class ManHunt extends JavaPlugin {
 		getLogger().info("Finished Unloading "+getDescription().getFullName());
 	}
 
-	protected Config getConfiguration() {
-		return config;
-	}
-
-	protected void startNewHunt() {
-		Hunt hunt = new Hunt(this);
-		hunts.add(hunt);
-	}
-
 	/**
 	 * Get the number of currently running hunts
 	 *
@@ -43,5 +34,14 @@ public class ManHunt extends JavaPlugin {
 	 */
 	public int getActiveHuntCount() {
 		return hunts.size();
+	}
+
+	protected Config getConfiguration() {
+		return config;
+	}
+
+	protected void startNewHunt() {
+		Hunt hunt = new Hunt(this);
+		hunts.add(hunt);
 	}
 }
