@@ -44,6 +44,24 @@ public class Config {
 		return -1;
 	}
 
+	/**
+	 * Return the maximum number of hunts permitted for the given player count
+	 *
+	 * @param playerCount Current player count
+	 * @return The number of hunts to allow
+	 */
+	public int getMaximumHunts(int playerCount) {
+		Integer[] limits = (Integer[]) huntLimits.toArray();
+		// Special case for no hunts allowed
+		if(limits[0] > playerCount) return 0;
+
+		int i;
+		for(i = 0; i < limits.length; i++) {
+			if(limits[i] > playerCount) return ++i;
+		}
+		return ++i;
+	}
+
 	public int getHuntResetTime() {
 		// TODO Auto-generated method stub
 		return 0;
