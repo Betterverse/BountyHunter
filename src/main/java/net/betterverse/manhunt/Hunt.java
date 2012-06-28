@@ -103,7 +103,8 @@ public class Hunt implements Runnable {
 	}
 
 	protected void targetKilled(Player killer) {
-		// TODO: Economy
+		plugin.getEconomy().depositPlayer(killer.getName(), bounty);
+
 		announceTargetKilled(killer.getDisplayName());
 		plugin.getServer().getScheduler().cancelTask(taskId);
 		mode = HuntMode.RESTART;

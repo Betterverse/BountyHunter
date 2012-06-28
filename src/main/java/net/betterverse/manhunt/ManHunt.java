@@ -3,13 +3,18 @@ package net.betterverse.manhunt;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.milkbowl.vault.economy.Economy;
+
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ManHunt extends JavaPlugin {
 	private static Config config;
 
 	private static List<Hunt> hunts = new ArrayList<Hunt>();
+
+	private static Economy economy;
 
 	@Override
 	public void onEnable() {
@@ -18,6 +23,9 @@ public class ManHunt extends JavaPlugin {
 
 		// Config
 		config = new Config(this);
+
+		// Economy
+		setupEconomy();
 
 		// Hello, world.
 		getLogger().info("Finished Loading " + getDescription().getFullName());
@@ -63,6 +71,10 @@ public class ManHunt extends JavaPlugin {
 		return null;
 	}
 
+	protected Economy getEconomy() {
+		return economy;
+	}
+
 	protected Config getConfiguration() {
 		return config;
 	}
@@ -74,5 +86,12 @@ public class ManHunt extends JavaPlugin {
 
 	protected void removeHunt(Hunt hunt) {
 		hunts.remove(hunt);
+	}
+
+	private void setupEconomy() {
+		RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
+		if (economyProvider != null) {
+			economy = economyProvider.getProvider();
+		}
 	}
 }
