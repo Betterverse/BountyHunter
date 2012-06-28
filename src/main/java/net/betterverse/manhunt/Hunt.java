@@ -157,7 +157,7 @@ public class Hunt implements Runnable {
 	}
 
 	private void announceTargetKilled(String killerName) {
-		plugin.getServer().broadcastMessage(ChatColor.DARK_RED + killerName + ChatColor.RED + " collected the bounty of " + ChatColor.DARK_RED + "$" + bounty + ChatColor.RED + " on " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + "'s head!");
+		plugin.getServer().broadcastMessage(ChatColor.GOLD + killerName + ChatColor.GREEN + " collected the bounty of " + ChatColor.GOLD + "$" + bounty + ChatColor.GREEN + " on " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.GREEN + "'s head!");
 	}
 
 	private void scheduleNextRun() {
