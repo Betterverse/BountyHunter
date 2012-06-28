@@ -38,8 +38,10 @@ public class Hunt implements Runnable {
 			
 		} else if(mode == HuntMode.RESETART) {
 			
+		} else if(mode == HuntMode.DISCONNECT) {
+			
 		} else {
-			plugin.getLogger().severe("HuntMode was unexpected!");
+			plugin.getLogger().severe("HuntMode was unexpected, could not execute this task!");
 		}
 		scheduleNextRun();
 	}
@@ -106,6 +108,11 @@ public class Hunt implements Runnable {
 		} else if(mode == HuntMode.RESETART) {
 			int time = plugin.getConfiguration().getHuntResetTime();
 			taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
+		} else if(mode == HuntMode.DISCONNECT) {
+			// Time to check for disconnect is one minute or 60 * 20 ticks, this could be configurable
+			taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, 1200);
+		} else {
+			plugin.getLogger().severe("HuntMode was unexpected, could not re-schedule this task!");
 		}
 	}
 }
