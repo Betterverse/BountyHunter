@@ -36,7 +36,7 @@ public class Hunt implements Runnable {
 	public void run() {
 		if(mode == HuntMode.HUNT) {
 			
-		} else if(mode == HuntMode.RESETART) {
+		} else if(mode == HuntMode.RESTART) {
 			
 		} else if(mode == HuntMode.DISCONNECT) {
 			
@@ -115,7 +115,7 @@ public class Hunt implements Runnable {
 		if(mode == HuntMode.HUNT) {
 			int time = plugin.getConfiguration().getBountyIncrementTime();
 			taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
-		} else if(mode == HuntMode.RESETART) {
+		} else if(mode == HuntMode.RESTART) {
 			int time = plugin.getConfiguration().getHuntResetTime();
 			taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
 		} else if(mode == HuntMode.DISCONNECT) {
