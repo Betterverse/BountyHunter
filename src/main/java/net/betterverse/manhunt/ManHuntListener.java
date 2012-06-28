@@ -1,5 +1,6 @@
 package net.betterverse.manhunt;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -28,6 +29,11 @@ public class ManHuntListener implements Listener {
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerQuit(PlayerQuitEvent event) {
-		
+		Player player = event.getPlayer();
+	
+		if(plugin.isInHunt(player)) {
+			Hunt hunt = plugin.getHuntFromPlayer(player);
+			hunt.targetDisconnected();
+		}
 	}
 }

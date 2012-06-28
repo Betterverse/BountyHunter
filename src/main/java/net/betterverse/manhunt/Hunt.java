@@ -65,6 +65,12 @@ public class Hunt implements Runnable {
 		return mode == HuntMode.HUNT;
 	}
 
+	protected void targetDisconnected() {
+		plugin.getServer().getScheduler().cancelTask(taskId);
+		mode = HuntMode.DISCONNECT;
+		scheduleNextRun();
+	}
+
 	/**
 	 * Update the location of this Hunt's target
 	 *
