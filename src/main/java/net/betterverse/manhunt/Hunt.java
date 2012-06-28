@@ -102,6 +102,14 @@ public class Hunt implements Runnable {
 		scheduleNextRun();
 	}
 
+	protected void targetKilled(Player killer) {
+		// TODO: Economy
+		announceTargetKilled(killer.getDisplayName());
+		plugin.getServer().getScheduler().cancelTask(taskId);
+		mode = HuntMode.RESTART;
+		scheduleNextRun();
+	}
+
 	/**
 	 * Update the location of this Hunt's target
 	 *
@@ -145,6 +153,10 @@ public class Hunt implements Runnable {
 
 	private void announceTargetCoward() {
 		plugin.getServer().broadcastMessage(ChatColor.RED + "The bounty was removed from " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + " for cowardice! Shame on them!");
+	}
+
+	private void announceTargetKilled(String killerName) {
+		plugin.getServer().broadcastMessage(ChatColor.DARK_RED + killerName + ChatColor.RED + " collected the bounty of " + ChatColor.DARK_RED + "$" + bounty + ChatColor.RED + " on " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + "'s head!");
 	}
 
 	private void scheduleNextRun() {
