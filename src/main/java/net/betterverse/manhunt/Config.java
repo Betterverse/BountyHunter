@@ -1,15 +1,31 @@
 package net.betterverse.manhunt;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.bukkit.configuration.file.FileConfiguration;
+
 public class Config {
 	private static Set<Integer> huntLimits = new TreeSet<Integer>();
 
+	private static FileConfiguration config;
+
 	public Config(ManHunt manHunt) {
-		huntLimits.add(3); // TODO: Load this value
-		huntLimits.add(8);
+		File configFile = new File(manHunt.getDataFolder(), "config.yml");
+		if(!configFile.exists()) {
+			manHunt.saveDefaultConfig();
+		}
+
+		config = manHunt.getConfig();
+
+		int maxConcurrent = config.getInt("hunts.maximum_concurrent");
+
+		for(int i = 1; i <= maxConcurrent; i++) {
+			int minimumPlayers = config.getInt("hunts.hunt_" + i + ".minimum_players");
+			huntLimits.add(minimumPlayers);
+		}
 	}
 
 	/**
@@ -66,14 +82,14 @@ public class Config {
 	 * @return Time in seconds to wait
 	 */
 	public int getHuntResetTime() {
-		return 120; // TODO: Load this value
+		return config.getInt("hunts.reset_time");
 	}
 
 	/**
 	 * @return The price at which a bounty should start
 	 */
 	public int getBountyStartPrice() {
-		return 100; // TODO: Load this value
+		return config.getInt("reward.initial");
 	}
 
 	/**
@@ -84,20 +100,20 @@ public class Config {
 	 * @return Time in seconds to wait
 	 */
 	public int getBountyIncrementTime() {
-		return 60; // TODO: Load this value
+		return config.getInt("reward.timer");
 	}
 
 	/**
 	 * @return The amount to increase the bounty by
 	 */
 	public int getBountyIncrementPrice() {
-		return 100; // TODO: Load this value
+		return config.getInt("reward.increment");
 	}
 
 	/**
 	 * @return The maximum price a bounty can be
 	 */
 	public int getBountyMaxPrice() {
-		return 1000; // TODO: Load this value
+		return config.getInt("reward.maximum");
 	}
 }
