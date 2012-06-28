@@ -7,7 +7,8 @@ public class Config {
 	private static Set<Integer> huntLimits = new TreeSet<Integer>();
 
 	public Config(ManHunt manHunt) {
-		// TODO Auto-generated constructor stub
+		huntLimits.add(3); // TODO: Load this value
+		huntLimits.add(8);
 	}
 
 	/**
@@ -58,16 +59,14 @@ public class Config {
 	 * @return Time in seconds to wait
 	 */
 	public int getHuntResetTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 120; // TODO: Load this value
 	}
 
 	/**
 	 * @return The price at which a bounty should start
 	 */
 	public int getBountyStartPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100; // TODO: Load this value
 	}
 
 	/**
@@ -78,23 +77,20 @@ public class Config {
 	 * @return Time in seconds to wait
 	 */
 	public int getBountyIncrementTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 60; // TODO: Load this value
 	}
 
 	/**
 	 * @return The amount to increase the bounty by
 	 */
 	public int getBountyIncrementPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 100; // TODO: Load this value
 	}
 
 	/**
 	 * @return The maximum price a bounty can be
 	 */
 	public int getBountyMaxPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1000; // TODO: Load this value
 	}
 }
