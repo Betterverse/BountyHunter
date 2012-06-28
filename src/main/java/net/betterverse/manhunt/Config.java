@@ -1,5 +1,6 @@
 package net.betterverse.manhunt;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -28,9 +29,12 @@ public class Config {
 	 * @return Sequential number hunt this is, -1 if not defined
 	 */
 	public int getHuntNumberForLimit(int playerCount) {
-		Integer[] limits = (Integer[]) huntLimits.toArray();
-		for(int i = 0; i < limits.length; i++) {
-			if(limits[i] == playerCount) return ++i;
+		int i = 1;
+		Iterator<Integer> iterator = huntLimits.iterator();
+		while(iterator.hasNext()) {
+			int limit = iterator.next().intValue();
+			if(limit == playerCount) return i;
+			i++;
 		}
 		return -1;
 	}
@@ -42,15 +46,17 @@ public class Config {
 	 * @return The number of hunts to allow
 	 */
 	public int getMaximumHunts(int playerCount) {
-		Integer[] limits = (Integer[]) huntLimits.toArray();
-		// Special case for no hunts allowed
-		if(limits[0] > playerCount) return 0;
-
-		int i;
-		for(i = 0; i < limits.length; i++) {
-			if(limits[i] > playerCount) return ++i;
+		int i = 1;
+		Iterator<Integer> iterator = huntLimits.iterator();
+		while(iterator.hasNext()) {
+			int limit = iterator.next().intValue();
+			if(limit > playerCount) {
+				// Special case for no hunts allowed
+				if(i == 1) return 0;
+				return i;
+			}
 		}
-		return ++i;
+		return i;
 	}
 
 	/**
