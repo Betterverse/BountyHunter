@@ -52,26 +52,47 @@ public class Config {
 		return ++i;
 	}
 
+	/**
+	 * Return the number of seconds to wait between a hunt starting and a hunt beginning
+	 *
+	 * @return Time in seconds to wait
+	 */
 	public int getHuntResetTime() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * @return The price at which a bounty should start
+	 */
 	public int getBountyStartPrice() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * Return the number of seconds to wait before checking if a bounty should be raised.
+	 * <br />
+	 * This value also dictates how often the location should be updated
+	 *
+	 * @return Time in seconds to wait
+	 */
 	public int getBountyIncrementTime() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * @return The amount to increase the bounty by
+	 */
 	public int getBountyIncrementPrice() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/**
+	 * @return The maximum price a bounty can be
+	 */
 	public int getBountyMaxPrice() {
 		// TODO Auto-generated method stub
 		return 0;
