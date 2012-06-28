@@ -35,11 +35,21 @@ public class Hunt implements Runnable {
 		
 	}
 
-	private void updateLocation() {
+	/**
+	 * Update the location of this Hunt's target
+	 *
+	 * @return true if the location has been changed, false if not
+	 */
+	private boolean updateLocation() {
 		double x = 50 * Math.round(target.getLocation().getX() / 50);
 		double y = 50 * Math.round(target.getLocation().getY() / 50);
 		double z = 50 * Math.round(target.getLocation().getZ() / 50);
-		location = new Location(target.getWorld(), x, y, z);
+		Location tempLocation = new Location(target.getWorld(), x, y, z);
+		if(!tempLocation.equals(location)) {
+			location = tempLocation;
+			return true;
+		}
+		return false;
 	}
 
 	private void selectTarget() {
