@@ -23,7 +23,7 @@ public class Hunt implements Runnable {
 		selectTarget();
 		updateLocation();
 		bounty = plugin.getConfiguration().getBountyStartPrice();
-		announceTarget();
+		announceNewTarget();
 
 		mode = HuntMode.HUNT;
 		scheduleNextRun();
@@ -57,7 +57,17 @@ public class Hunt implements Runnable {
 		target = players[random.nextInt(players.length)];
 	}
 
-	private void announceTarget() {
+	private void announceNewTarget() {
+		// TODO: Announce
+		announceTargetBounty();
+		announceTargetLocation();
+	}
+
+	private void announceTargetBounty() {
+		// TODO: Announce
+	}
+
+	private void announceTargetLocation() {
 		// TODO: Announce
 	}
 
