@@ -58,4 +58,14 @@ public class Config {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public int getBountyIncrementPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getBountyMaxPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
