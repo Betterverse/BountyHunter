@@ -121,7 +121,12 @@ public class Hunt implements Runnable {
 
 	private void selectTarget() {
 		Player[] players = plugin.getServer().getOnlinePlayers();
-		target = players[random.nextInt(players.length)];
+		Player tempTarget;
+		// I suppose if improperly configured it would be possible for this to be an infinite loop...
+		do {
+			tempTarget = players[random.nextInt(players.length)];
+		} while (plugin.isInHunt(tempTarget));
+		target = tempTarget;
 	}
 
 	private void announceNewTarget() {
