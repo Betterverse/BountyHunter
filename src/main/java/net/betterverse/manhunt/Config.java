@@ -55,6 +55,7 @@ public class Config {
 				if(i == 1) return 0;
 				return i;
 			}
+			i++;
 		}
 		return i;
 	}
