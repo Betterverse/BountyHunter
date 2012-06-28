@@ -35,7 +35,14 @@ public class Hunt implements Runnable {
 	@Override
 	public void run() {
 		if(mode == HuntMode.HUNT) {
-			
+			// Here we are to check to see if we need to update our location and bounty, and notify as such for each case.
+			if(bounty < plugin.getConfiguration().getBountyMaxPrice()) {
+				bounty += plugin.getConfiguration().getBountyIncrementPrice();
+				announceTargetBounty();
+			}
+			if(updateLocation()) {
+				announceTargetLocation();
+			}
 		} else if(mode == HuntMode.RESTART) {
 			
 		} else if(mode == HuntMode.DISCONNECT) {
