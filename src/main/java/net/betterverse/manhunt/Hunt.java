@@ -2,6 +2,7 @@ package net.betterverse.manhunt;
 
 import java.util.Random;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -64,17 +65,17 @@ public class Hunt implements Runnable {
 	}
 
 	private void announceNewTarget() {
-		plugin.getServer().broadcastMessage("There is now a bounty on " + target.getDisplayName() + "!");
+		plugin.getServer().broadcastMessage(ChatColor.RED + "There is now a bounty on " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + "!");
 		announceTargetBounty();
 		announceTargetLocation();
 	}
 
 	private void announceTargetBounty() {
-		plugin.getServer().broadcastMessage("The bounty on " + target.getDisplayName() + " is currently " + "$" + bounty);
+		plugin.getServer().broadcastMessage(ChatColor.RED + "The bounty on " + ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + " is currently " + ChatColor.DARK_RED + "$" + bounty);
 	}
 
 	private void announceTargetLocation() {
-		plugin.getServer().broadcastMessage(target.getDisplayName() + " can be found near " + location.getBlockX() + "," + location.getBlockY() + "," + location.getBlockZ()); 
+		plugin.getServer().broadcastMessage(ChatColor.DARK_RED + target.getDisplayName() + ChatColor.RED + " can be found near " + ChatColor.DARK_RED + + location.getBlockX() + "," + location.getBlockY() + "," + location.getBlockZ()); 
 	}
 
 	private void scheduleNextRun() {
