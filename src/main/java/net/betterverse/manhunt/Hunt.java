@@ -64,17 +64,17 @@ public class Hunt implements Runnable {
 	}
 
 	private void announceNewTarget() {
-		// TODO: Announce
+		plugin.getServer().broadcastMessage("There is now a bounty on " + target.getDisplayName() + "!");
 		announceTargetBounty();
 		announceTargetLocation();
 	}
 
 	private void announceTargetBounty() {
-		// TODO: Announce
+		plugin.getServer().broadcastMessage("The bounty on " + target.getDisplayName() + " is currently " + "$" + bounty);
 	}
 
 	private void announceTargetLocation() {
-		// TODO: Announce
+		plugin.getServer().broadcastMessage(target.getDisplayName() + " can be found near " + location.getBlockX() + "," + location.getBlockY() + "," + location.getBlockZ()); 
 	}
 
 	private void scheduleNextRun() {
