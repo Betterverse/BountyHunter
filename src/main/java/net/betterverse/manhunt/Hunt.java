@@ -14,6 +14,8 @@ public class Hunt implements Runnable {
 	private Location location;
 	private int bounty;
 
+	private int taskId;
+
 	private final Random random = new Random();
 
 	public Hunt(ManHunt manHunt) {
@@ -81,10 +83,10 @@ public class Hunt implements Runnable {
 	private void scheduleNextRun() {
 		if(mode == HuntMode.HUNT) {
 			int time = plugin.getConfiguration().getBountyIncrementTime();
-			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
+			taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
 		} else if(mode == HuntMode.RESETART) {
 			int time = plugin.getConfiguration().getHuntResetTime();
-			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
+			taskId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, this, time * 20);
 		}
 	}
 }
