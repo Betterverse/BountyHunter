@@ -31,8 +31,14 @@ public class Hunt implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		if(mode == HuntMode.HUNT) {
+			
+		} else if(mode == HuntMode.RESETART) {
+			
+		} else {
+			plugin.getLogger().severe("HuntMode was not HUNT or RESTART!");
+		}
+		scheduleNextRun();
 	}
 
 	/**
