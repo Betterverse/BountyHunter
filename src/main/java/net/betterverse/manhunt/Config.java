@@ -62,13 +62,11 @@ public class Config {
 	 * @return The number of hunts to allow
 	 */
 	public int getMaximumHunts(int playerCount) {
-		int i = 1;
+		int i = 0;
 		Iterator<Integer> iterator = huntLimits.iterator();
 		while(iterator.hasNext()) {
 			int limit = iterator.next().intValue();
 			if(limit > playerCount) {
-				// Special case for no hunts allowed
-				if(i == 1) return 0;
 				return i;
 			}
 			i++;
